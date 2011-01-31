@@ -29,7 +29,21 @@ else
     wmctrl -F -a $SERVER_TERM_TITLE
 fi
 
+args=`getopt -o n -l long: -- "$@"`
+RETURN_ORIGNAL_WINDOW=1
+while getopts n OPT
+do
+    case $OPT in
+        "n" )
+            RETURN_ORIGNAL_WINDOW=0
+            ;;
+    esac
+done
+
 emacsclient $@
 
 # return to origin window
-wmctrl -i -a $CURRENT_WID
+if [ "$RETURN_ORIGNAL_WINDOW" -eq 1 ]
+then
+    wmctrl -i -a $CURRENT_WID
+fi
