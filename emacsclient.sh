@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# if your system is MacOS launch emacsclient directly
+case "$OSTYPE" in
+darwin*)
+        exec emacsclient $@
+esac
+
 if ! which wmctrl > /dev/null 2>&1
 then
     echo "Please install wmctrl"
