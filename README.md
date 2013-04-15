@@ -1,5 +1,7 @@
 # emacsclient focus
 
+These scripts are developing in `https://github.com/syohex/emacs-utils`
+
 ## 機能
 (server-start)を実行した Emacsと異なる仮想デスクトップで emacsclientを
 実行した場合でも, フォーカスを切り替える.
